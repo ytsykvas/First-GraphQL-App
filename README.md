@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Simple project with realized Rails graphQL API 
 
-Things you may want to cover:
+## Start
+* clone repository
+```
+git clone https://github.com/username/project.git
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* install dependencies
+```
+bundle install
+```
+* creating and seeding DB
+```
+rails db:create db:migrate db:seed
+```
+You will have 4 ready to use items to work with.
+* run project
+```
+rails server
+```
+Your local project will be ready to use GraphQL requests at 
+```
+http://localhost:3000/graphiql
+```
+## How to make a request?
+* Get seeded items
+At http://localhost:3000/graphiql enter next data to get all items:
+```
+{
+  items {
+    id
+    title
+    description
+    artist {
+      firstName
+      email
+      createdAt
+    }
+  }
+}
+```
